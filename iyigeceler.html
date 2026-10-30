@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İyi Geceler Bebekimmmm</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="icon.jpg">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Poppins',sans-serif;color:#fff;overflow-x:hidden;min-height:100vh;
+    background:linear-gradient(160deg,#0b1026,#1b1f4b,#3a2a6b,#1b1f4b,#0b1026);
+    background-size:300% 300%;animation:bg 20s ease infinite;
+    display:flex;align-items:center;justify-content:center;padding:32px 16px;
+  }
+  @keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  main{position:relative;z-index:2;text-align:center;max-width:1280px;width:100%}
+  .moon{font-size:3.2rem;animation:glow 3s ease-in-out infinite;display:inline-block}
+  @keyframes glow{50%{transform:scale(1.1);filter:drop-shadow(0 0 18px #ffe9a8)}}
+  .date{font-weight:300;letter-spacing:.25em;text-transform:uppercase;font-size:.78rem;opacity:.85;margin:6px 0 8px}
+  h1{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(3.2rem,13vw,5.5rem);line-height:1;text-shadow:0 4px 22px rgba(170,140,255,.6)}
+  h2{
+    margin:10px auto 0;max-width:900px;font-weight:800;font-size:clamp(1.3rem,5vw,2.3rem);line-height:1.2;letter-spacing:.04em;
+    background:linear-gradient(90deg,#fff,#ffe29f,#fff,#c9b6ff,#fff);background-size:300% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite;
+    filter:drop-shadow(0 3px 10px rgba(150,110,255,.6));
+  }
+  @keyframes shine{to{background-position:300% 0}}
+
+  /* ---- Ortada video, etrafında 6 GIF ---- */
+  .stage-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.7fr) minmax(0,1fr);gap:16px;align-items:center;margin:30px auto 0}
+  .col{display:flex;flex-direction:column;gap:16px}
+  .slot{
+    position:relative;aspect-ratio:1/1;border-radius:22px;overflow:hidden;border:4px solid rgba(255,255,255,.8);
+    box-shadow:0 14px 40px rgba(0,0,0,.45);background:#221a3d;animation:float 5s ease-in-out infinite;
+  }
+  .slot span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:.8rem;letter-spacing:.15em;color:rgba(255,255,255,.35)}
+  .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .col .slot:nth-child(2){animation-delay:-1.6s}.col .slot:nth-child(3){animation-delay:-3.2s}
+  @keyframes float{50%{transform:translateY(-8px)}}
+
+  .video{
+    position:relative;aspect-ratio:16/9;border-radius:26px;overflow:hidden;border:5px solid #ffd84a;
+    box-shadow:0 0 0 5px #e63946,0 22px 60px rgba(0,0,0,.6),0 0 60px rgba(170,140,255,.35);background:#000;
+  }
+  .video svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;text-align:center;font-weight:600;
+    font-size:clamp(.72rem,1.7vw,1.1rem);text-shadow:0 2px 8px #000,0 0 3px #000;
+    background:linear-gradient(transparent,rgba(0,0,0,.55));transition:opacity .5s;pointer-events:none;
+  }
+  .badge{position:absolute;top:10px;left:12px;background:#ffd84a;color:#111;font-weight:800;font-size:.62rem;letter-spacing:.12em;padding:4px 9px;border-radius:6px;box-shadow:0 2px 0 #b8941a}
+
+  .msg{margin:28px auto 0;max-width:900px;font-weight:300;font-size:1.05rem;word-break:break-word}
+  button{
+    margin-top:22px;border:0;cursor:pointer;font:600 1rem 'Poppins',sans-serif;color:#4b2fa0;
+    background:rgba(255,255,255,.92);padding:13px 26px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s;
+  }
+  button:hover{transform:scale(1.06)}
+  button.pulse{animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.7)}100%{box-shadow:0 0 0 22px rgba(255,255,255,0)}}
+  .star{position:fixed;z-index:1;pointer-events:none;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+  .shoot{position:fixed;z-index:1;pointer-events:none;width:120px;height:2px;
+    background:linear-gradient(90deg,#fff,transparent);transform:rotate(35deg);animation:shoot 1.4s ease-out forwards}
+  @keyframes shoot{from{opacity:1;translate:0 0}to{opacity:0;translate:-320px 220px}}
+  .heart{position:fixed;bottom:-40px;z-index:1;pointer-events:none;animation:rise linear forwards;opacity:.8}
+  @keyframes rise{to{transform:translateY(-115vh) rotate(30deg);opacity:0}}
+  #intro{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(160deg,#0b1026,#2a2159,#4b2f8f);transition:opacity .8s;padding:20px}
+  #intro.hide{opacity:0;pointer-events:none}
+
+  @media (max-width:860px){
+    .stage-wrap{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .col{display:contents}
+    .video{grid-column:1/-1;order:-1;margin-bottom:6px}
+    .slot{border-width:3px;border-radius:16px}
+  }
+</style>
+</head>
+<body>
+<div id="intro"><button id="open" class="pulse">🌙 Senin için bir sürprizim var, aç</button></div>
+
+<main>
+  <div class="moon">🌙</div>
+  <div class="date" id="date"></div>
+  <h1>İyi Geceler</h1>
+  <h2>DÜNYANIN EN EN EN EN EN EN EN EN GÜZEL KADINI ❤️​​</h2>
+
+  <section class="stage-wrap">
+    <div class="col">
+      <div class="slot"><span>GIF 1</span><img src="gif1.gif" alt="" onerror="this.style.display='none'"></div>
+      <div class="slot"><span>GIF 2</span><img src="gif2.gif" alt="" onerror="this.style.display='none'"></div>
+      <div class="slot"><span>GIF 3</span><img src="gif3.gif" alt="" onerror="this.style.display='none'"></div>
+    </div>
+
+    <div class="video">
+      <svg id="stage" viewBox="0 0 960 540" preserveAspectRatio="xMidYMid slice" aria-label="Lego tarzı animasyon"></svg>
+      <div class="badge">LEGO KLİP</div>
+      <div class="cap" id="cap"></div>
+    </div>
+
+    <div class="col">
+      <div class="slot"><span>GIF 4</span><img src="gif4.gif" alt="" onerror="this.style.display='none'"></div>
+      <div class="slot"><span>GIF 5</span><img src="gif5.gif" alt="" onerror="this.style.display='none'"></div>
+      <div class="slot"><span>GIF 6</span><img src="gif6.gif" alt="" onerror="this.style.display='none'"></div>
+    </div>
+  </section>
+
+  <p class="msg">SENİ ÇOK AMA ÇOK SEVİYORUM 🤭​, Tatlı Rüyalar GÜZELLİĞİME ❤️🩷🧡💛💚💙🩵💜🤎🖤🩶🤍💘​💝​💖​💗​💓​💞​💕​❣️​❤️‍🔥​🥰​😍​😘​😍​😍​😍​😍​😍​😍​😍​😍😗​😘​😗​😘​😗​😘​😗​😘​😗​😘​😗​😘​​</p>
+  <button id="play">⏸️ Müziği Durdur</button>
+</main>
+
+<audio id="music" src="music.mp3" loop preload="auto"></audio>
+
+<script>
+document.getElementById('date').textContent =
+  new Date().toLocaleDateString('tr-TR',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+
+// Yıldızlar
+for(let i=0;i<70;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  const z=1+Math.random()*2.5;
+  s.style.cssText=`left:${Math.random()*100}vw;top:${Math.random()*100}vh;width:${z}px;height:${z}px;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+  document.body.appendChild(s);
+}
+// Kayan yıldız
+setInterval(()=>{
+  const s=document.createElement('div');
+  s.className='shoot';
+  s.style.left=(40+Math.random()*60)+'vw';
+  s.style.top=(Math.random()*40)+'vh';
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),1500);
+},3500);
+// Yükselen kalpler
+const emojis=['💜','💙','⭐','✨','💫','🌙'];
+setInterval(()=>{
+  const h=document.createElement('div');
+  h.className='heart';
+  h.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(14+Math.random()*22)+'px';
+  h.style.animationDuration=(7+Math.random()*6)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),13500);
+},600);
+
+// Müzik: music.mp3
+const audio=document.getElementById('music');
+audio.volume=0.7;
+const btn=document.getElementById('play');
+let playing=false;
+function start(){
+  audio.play().then(()=>{playing=true;btn.textContent='⏸️ Müziği Durdur';}).catch(()=>{});
+}
+function stop(){
+  audio.pause();playing=false;btn.textContent='🎵 Müziği Başlat';
+}
+btn.addEventListener('click',()=>playing?stop():start());
+
+// Açılış ekranı: tıklama müziği başlatır
+document.getElementById('open').addEventListener('click',()=>{
+  audio.currentTime=0;
+  start();
+  document.getElementById('intro').classList.add('hide');
+});
+
+/* =====================================================================
+   LEGO TARZI KLİP  (kodla çizilmiş animasyon, şarkıyla senkron)
+   Sahne süresi 54 sn. Şarkı 3:36 = tam 4 tur.
+   ===================================================================== */
+const D=54;
+const stage=document.getElementById('stage');
+const capEl=document.getElementById('cap');
+const clamp01=x=>Math.max(0,Math.min(1,x));
+const seg=(t,a,b)=>clamp01((t-a)/(b-a));
+const ease=x=>{x=clamp01(x);return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2};
+const lerp=(a,b,k)=>a+(b-a)*k;
+const rnd=(()=>{let s=11;return()=>{s=(s*16807)%2147483647;return (s-1)/2147483646}})();
+const SK='#f6c33b';
+
+/* ---------- Lego yardımcıları ---------- */
+function studs(x,y,w,col){let s='';for(let sx=x+9;sx<x+w-5;sx+=16)s+=`<rect x="${sx-5}" y="${y-3.5}" width="10" height="4" rx="1.8" fill="${col||'rgba(255,255,255,.14)'}"/>`;return s}
+function brick(x,y,w,h,fill,sc){return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}"/>`+studs(x,y,w,sc)}
+function seams(x,y,w,h,step){let s='';for(let yy=y+step;yy<y+h;yy+=step)s+=`<line x1="${x}" x2="${x+w}" y1="${yy}" y2="${yy}" stroke="rgba(255,255,255,.07)" stroke-width="1"/>`;return s}
+
+/* ---------- Minifigür ---------- */
+function arm(id,cx,col,show){
+  return `<g id="${id}" transform="rotate(0 ${cx} -112)" ${show===false?'opacity="0"':''}>
+    <rect x="${cx-7.5}" y="-118" width="15" height="52" rx="6" fill="${col}"/>
+    <circle cx="${cx}" cy="-62" r="8" fill="${SK}"/></g>`;
+}
+function minifig(kind,p,o){
+  o=o||{};
+  const man=kind==='man';
+  const torso=man?'#16161a':'#2b2321';
+  const legs=man?'#2d3a5c':'#1f1f26';
+  const hip=man?'#222c48':'#17171c';
+  let s=`<g id="${p}Legs"><rect x="-23" y="-62" width="22" height="60" rx="3" fill="${legs}"/><rect x="1" y="-62" width="22" height="60" rx="3" fill="${legs}"/>
+    <rect x="-25" y="-5" width="24" height="7" rx="3" fill="#0d0d10"/><rect x="1" y="-5" width="24" height="7" rx="3" fill="#0d0d10"/></g>
+    <rect x="-25" y="-72" width="50" height="14" rx="3" fill="${hip}"/>`;
+  if(o.arms!==false) s+=arm(p+'ArmL',-33.5,torso)+arm(p+'ArmR',33.5,torso);
+  s+=`<path d="M-27 -70 L-27 -114 Q-27 -122 -19 -122 L19 -122 Q27 -122 27 -114 L27 -70Z" fill="${torso}"/>`;
+  if(man){
+    s+=`<path d="M-11 -123 Q0 -108 11 -123Z" fill="${SK}"/><path d="M-13 -122 Q0 -109 13 -122" fill="none" stroke="#2c2c34" stroke-width="5"/>
+        <path d="M-20 -96 L-20 -72 M-10 -96 L-10 -72 M0 -96 L0 -72 M10 -96 L10 -72 M20 -96 L20 -72" stroke="#202026" stroke-width="2"/>`;
+  }else{
+    s+=`<path d="M-6 -123 L6 -123 L0 -100Z" fill="${SK}"/>
+        <path d="M-27 -114 Q-27 -122 -19 -122 L-6 -122 L-14 -98 L-27 -104Z" fill="#8a6244"/>
+        <path d="M27 -114 Q27 -122 19 -122 L6 -122 L14 -98 L27 -104Z" fill="#8a6244"/>
+        <line x1="0" y1="-100" x2="0" y2="-70" stroke="#5c4a40" stroke-width="2"/>
+        <rect x="-22" y="-86" width="14" height="3" rx="1.5" fill="#463a34"/><rect x="8" y="-86" width="14" height="3" rx="1.5" fill="#463a34"/>`;
+  }
+  s+=`<g id="${p}Head" transform="rotate(0 0 -122)">`;
+  if(!man){ // arka saç
+    s+=`<path d="M-28 -150 Q-28 -176 0 -176 Q28 -176 28 -150 L30 -112 Q30 -108 26 -108 L-26 -108 Q-30 -108 -30 -112Z" fill="#0f0d10"/>`;
+  }
+  s+=`<rect x="-9" y="-176" width="18" height="9" rx="2" fill="${SK}"/>
+      <rect x="-23" y="-168" width="46" height="46" rx="9" fill="${SK}"/>`;
+  if(man){
+    s+=`<circle cx="-24.5" cy="-137" r="3.4" fill="#e9b32c"/><circle cx="24.5" cy="-137" r="3.4" fill="#e9b32c"/>
+      <circle cx="-25" cy="-134" r="2" fill="#e8eef5"/>
+      <path d="M-23 -144 L-23 -130 Q-20 -118 0 -117 Q20 -118 23 -130 L23 -144 Q18 -134 10 -133 L-10 -133 Q-18 -134 -23 -144Z" fill="#4a3020"/>
+      <ellipse id="${p}Mouth" cx="0" cy="-131" rx="5" ry="1.8" fill="#b4694f"/>
+      <path d="M-15 -137 Q-8 -143 0 -139 Q8 -143 15 -137 Q9 -132.5 0 -135 Q-9 -132.5 -15 -137Z" fill="#5b3a22"/>
+      <g id="${p}Eyes"><circle cx="-9.5" cy="-147" r="2.8" fill="#1b1b1b"/><circle cx="9.5" cy="-147" r="2.8" fill="#1b1b1b"/>
+      <circle cx="-8.7" cy="-148" r=".9" fill="#fff"/><circle cx="10.3" cy="-148" r=".9" fill="#fff"/></g>
+      <path d="M-17 -153 Q-10 -158 -3 -153.5 M3 -153.5 Q10 -158 17 -153" fill="none" stroke="#1a120e" stroke-width="3.2" stroke-linecap="round"/>`;
+    const curls=[[-20,-163,9],[-10,-171,9.5],[2,-173,10.5],[14,-170,9.5],[23,-162,9],[-25,-151,7.5],[25.5,-151,7.5],[-4,-164,8.5],[8,-164,8.5],[-14,-161,8],[17,-159,7.5],[-26,-160,6],[27,-159,6],[-1,-178,6.5],[-13,-176,6],[11,-177,6]];
+    curls.forEach((c,i)=>{s+=`<circle cx="${c[0]}" cy="${c[1]}" r="${c[2]}" fill="${i%3?'#1a120e':'#2d201a'}"/>`});
+    s+=`<circle cx="-6" cy="-176" r="2.2" fill="#8a8480"/><circle cx="16" cy="-171" r="1.8" fill="#8a8480"/><circle cx="-18" cy="-168" r="1.8" fill="#8a8480"/>`;
+  }else{
+    s+=`<circle cx="-15" cy="-137" r="4.2" fill="#ff7a8a" opacity=".32"/><circle cx="15" cy="-137" r="4.2" fill="#ff7a8a" opacity=".32"/>
+      <g id="${p}Eyes"><circle cx="-9.5" cy="-147" r="2.8" fill="#1b1b1b"/><circle cx="9.5" cy="-147" r="2.8" fill="#1b1b1b"/>
+      <circle cx="-8.7" cy="-148" r=".9" fill="#fff"/><circle cx="10.3" cy="-148" r=".9" fill="#fff"/>
+      <path d="M-14 -149 L-17 -152 M14 -149 L17 -152" stroke="#111" stroke-width="1.5" stroke-linecap="round"/></g>
+      <rect id="${p}Lid" x="-17" y="-152" width="34" height="0" fill="${SK}"/>
+      <path id="${p}Closed" d="M-14 -147 Q-9.5 -143.5 -5 -147 M5 -147 Q9.5 -143.5 14 -147" fill="none" stroke="#111" stroke-width="1.7" stroke-linecap="round" opacity="0"/>
+      <path d="M-16 -154 Q-10 -157 -4 -154.5 M4 -154.5 Q10 -157 16 -154" fill="none" stroke="#1a1214" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="3" cy="-138" r="1.3" fill="#d8dce0"/>
+      <path d="M-8 -132.5 Q0 -124 8 -132.5 Q0 -129.5 -8 -132.5Z" fill="#c0283d"/>
+      <path d="M-5.5 -131.6 Q0 -127.6 5.5 -131.6 Q0 -129.8 -5.5 -131.6Z" fill="#fff"/>
+      <path d="M-23 -144 Q-23 -170 0 -170 Q23 -170 23 -144 Q13 -158 0 -160 Q-13 -158 -23 -144Z" fill="#0f0d10"/>
+      <rect x="-30" y="-166" width="8" height="56" rx="3.5" fill="#0f0d10"/><rect x="22" y="-166" width="8" height="56" rx="3.5" fill="#0f0d10"/>
+      <circle cx="-26" cy="-124" r="6.5" fill="none" stroke="#e8b83a" stroke-width="2"/><circle cx="26" cy="-124" r="6.5" fill="none" stroke="#e8b83a" stroke-width="2"/>`;
+  }
+  s+=`</g>`;
+  return s;
+}
+
+/* ---------- SAHNE A : İstanbul gecesi ---------- */
+function buildA(){
+  let g=`<defs>
+    <linearGradient id="skyA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050818"/><stop offset=".55" stop-color="#1a1f4d"/><stop offset="1" stop-color="#6a3f8f"/></linearGradient>
+    <linearGradient id="waterA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2a66"/><stop offset="1" stop-color="#0f1236"/></linearGradient>
+    <pattern id="studPat" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="13" cy="13" r="8" fill="rgba(255,255,255,.07)" stroke="rgba(0,0,0,.25)" stroke-width="1.5"/><circle cx="11" cy="11" r="3" fill="rgba(255,255,255,.10)"/></pattern>
+    <mask id="cres"><rect width="960" height="540" fill="#fff"/><circle cx="116" cy="62" r="29" fill="#000"/></mask>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <path id="heartP" d="M0 -5 C -9 -17 -24 -3 0 14 C 24 -3 9 -17 0 -5 Z"/>
+  </defs>
+  <rect width="960" height="540" fill="url(#skyA)"/>
+  <g id="bgStars"></g>
+  <circle cx="100" cy="76" r="34" fill="#ffe9a8" mask="url(#cres)" filter="url(#glow)"/>
+  <g id="shoot"><line x1="0" y1="0" x2="-90" y2="-36" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle r="4" fill="#fff"/></g>`;
+  // şehir
+  let city='';const base=400;
+  const cols=['#1b1846','#221d52','#17163c','#2a2260'];
+  let x=-10;
+  while(x<980){
+    const w=36+Math.floor(rnd()*3)*12,h=36+Math.floor(rnd()*5)*14;
+    if((x>225&&x<435)||(x>748&&x<852)){x+=w;continue}
+    const c=cols[Math.floor(rnd()*4)];
+    city+=brick(x,base-h,w,h,c)+seams(x,base-h,w,h,12);
+    for(let wy=base-h+10;wy<base-8;wy+=16)for(let wx=x+8;wx<x+w-8;wx+=14){
+      if(rnd()<.45)city+=`<rect class="win" data-p="${(rnd()*6).toFixed(2)}" x="${wx}" y="${wy}" width="6" height="8" fill="#ffd978"/>`;
+    }
+    x+=w+2;
+  }
+  // Sultanahmet
+  function minaret(cx,top){return `<rect x="${cx-4.5}" y="${top}" width="9" height="${base-top}" fill="#2a2468"/><rect x="${cx-7.5}" y="${top+30}" width="15" height="4" fill="#352d7e"/><path d="M${cx-6} ${top} L${cx} ${top-26} L${cx+6} ${top}Z" fill="#3a2f8a"/>`}
+  city+=`<g>
+    <rect x="268" y="338" width="124" height="62" fill="#241f58"/>${seams(268,338,124,62,12)}
+    <path d="M280 338 A50 50 0 0 1 380 338Z" fill="#2d2670"/><path d="M262 352 A22 22 0 0 1 306 352Z" fill="#2a2468"/><path d="M354 352 A22 22 0 0 1 398 352Z" fill="#2a2468"/>
+    <circle cx="330" cy="287" r="3" fill="#ffd978"/><line x1="330" y1="290" x2="330" y2="298" stroke="#ffd978" stroke-width="1.5"/>
+    ${minaret(246,258)}${minaret(414,258)}${minaret(262,288)}${minaret(398,288)}
+    <rect class="win" data-p="1.2" x="300" y="360" width="8" height="12" fill="#ffd978"/><rect class="win" data-p="2.7" x="326" y="360" width="8" height="12" fill="#ffd978"/><rect class="win" data-p="4.1" x="352" y="360" width="8" height="12" fill="#ffd978"/>
+  </g>`;
+  // Galata
+  city+=`<g>
+    <rect x="778" y="285" width="44" height="115" fill="#2a2468"/>${seams(778,285,44,115,12)}
+    <rect x="768" y="277" width="64" height="9" fill="#352d7e"/><rect x="779" y="258" width="42" height="19" fill="#2a2468"/>
+    <path d="M771 258 L800 208 L829 258Z" fill="#3a2f8a"/><line x1="800" y1="190" x2="800" y2="210" stroke="#ffd978" stroke-width="2"/>
+    <rect class="win" data-p="0.4" x="796" y="300" width="8" height="12" fill="#ffd978"/><rect class="win" data-p="3.3" x="796" y="330" width="8" height="12" fill="#ffd978"/><rect class="win" data-p="5.1" x="796" y="362" width="8" height="12" fill="#ffd978"/><rect x="794" y="263" width="12" height="9" fill="#ffd978" opacity=".9"/>
+  </g>`;
+  g+=`<g id="city">${city}</g>
+    <rect y="400" width="960" height="54" fill="url(#waterA)"/><g id="waves"></g>
+    <g id="ferry"><rect x="0" y="-9" width="62" height="12" rx="2" fill="#7a2230"/><rect x="8" y="-20" width="38" height="11" fill="#e9e9ef"/>${studs(8,-20,38,'rgba(0,0,0,.15)')}<rect x="14" y="-17" width="5" height="5" fill="#ffd978"/><rect x="25" y="-17" width="5" height="5" fill="#ffd978"/><rect x="36" y="-17" width="5" height="5" fill="#ffd978"/><rect x="38" y="-30" width="7" height="10" fill="#b13a4a"/></g>
+    <rect y="436" width="960" height="16" fill="#3b4467"/>${studs(0,436,960,'rgba(255,255,255,.18)')}
+    <rect y="452" width="960" height="90" fill="#26304f"/><rect y="452" width="960" height="8" fill="#37457a"/><rect y="460" width="960" height="90" fill="url(#studPat)"/>
+    <g id="con"></g>
+    <g id="manWrap"><g id="manG" transform="translate(190,512) scale(1.5)">${minifig('man','m')}</g></g>
+    <g id="hearts"></g>
+    <use id="kiss" href="#heartP" fill="#ff4d7e" filter="url(#glow)"/>`;
+  return g;
+}
+
+/* ---------- SAHNE T : Harita geçişi ---------- */
+function buildT(){
+  return `<defs><radialGradient id="tbg" cx=".5" cy=".5" r=".8"><stop offset="0" stop-color="#2a2159"/><stop offset="1" stop-color="#070a1c"/></radialGradient></defs>
+  <rect width="960" height="540" fill="url(#tbg)"/>
+  <g id="tstars"></g>
+  <path id="route" d="M190 170 C 380 20, 600 90, 770 380" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="4" stroke-dasharray="3 14" stroke-linecap="round"/>
+  <path id="routeP" d="M190 170 C 380 20, 600 90, 770 380" fill="none" stroke="#ff9ec0" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
+  <g transform="translate(190,170)"><circle r="26" fill="#e63946"/><circle r="26" fill="url(#studPat)"/><circle r="12" fill="#ff8a95"/><text y="52" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="24" fill="#fff" letter-spacing="3">İSTANBUL</text></g>
+  <g transform="translate(770,380)"><circle r="26" fill="#2a9d8f"/><circle r="26" fill="url(#studPat)"/><circle r="12" fill="#7fe0d2"/><text y="52" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="24" fill="#fff" letter-spacing="3">HATAY</text></g>
+  <use id="tHeart" href="#heartP" fill="#ff4d7e" filter="url(#glow)"/>`;
+}
+
+/* ---------- SAHNE B : Hatay, yatak odası ---------- */
+function buildB(){
+  let g=`<defs>
+    <linearGradient id="wallB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2d2250"/><stop offset="1" stop-color="#4a3560"/></linearGradient>
+    <linearGradient id="winSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a0f2e"/><stop offset="1" stop-color="#3b2a6e"/></linearGradient>
+    <radialGradient id="lampG"><stop offset="0" stop-color="#ffd27a" stop-opacity=".75"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
+    <radialGradient id="phG"><stop offset="0" stop-color="#9fc2ff" stop-opacity=".8"/><stop offset="1" stop-color="#9fc2ff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b4a9a"/><stop offset="1" stop-color="#1a2a66"/></linearGradient>
+  </defs>
+  <rect width="960" height="540" fill="url(#wallB)"/>
+  ${seams(0,0,960,470,28)}
+  <rect y="470" width="960" height="70" fill="#3a2b2e"/><rect y="470" width="960" height="6" fill="#4d3a3c"/>${seams(0,470,960,70,18)}
+  <!-- pencere -->
+  <g transform="translate(650,70)">
+    <rect x="-10" y="-10" width="240" height="210" rx="6" fill="#e9e2d6"/>
+    <rect width="220" height="190" fill="url(#winSky)"/>
+    <circle cx="60" cy="48" r="20" fill="#ffe9a8"/><circle cx="70" cy="42" r="18" fill="#141a45"/>
+    <g id="bStars"></g>
+    <path d="M130 190 L130 100 L136 100 L136 190Z M126 100 L133 70 L140 100Z" fill="#171a4a"/>
+    <path d="M150 190 L150 140 Q175 100 200 140 L200 190Z" fill="#171a4a"/>
+    <path d="M0 190 L0 160 L40 160 L40 190Z M40 190 L40 150 L86 150 L86 190Z" fill="#171a4a"/>
+    <rect x="108" y="0" width="4" height="190" fill="#e9e2d6"/><rect x="0" y="92" width="220" height="4" fill="#e9e2d6"/>
+  </g>
+  <!-- HATAY tabelası -->
+  <g transform="translate(235,60)"><rect x="-4" width="4" height="26" fill="#6b5a4f"/><rect x="190" width="4" height="26" fill="#6b5a4f"/>
+    <rect y="22" width="190" height="62" rx="6" fill="#2a9d8f"/>${studs(0,22,190,'rgba(255,255,255,.3)')}
+    <text x="95" y="66" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="34" letter-spacing="6" fill="#fff">HATAY</text></g>
+  <!-- komodin + lamba -->
+  <rect x="30" y="392" width="92" height="82" fill="#6b4a35"/>${studs(30,392,92,'rgba(255,255,255,.15)')}${seams(30,392,92,82,20)}
+  <circle id="lampGlow" cx="76" cy="330" r="170" fill="url(#lampG)"/>
+  <rect x="68" y="360" width="16" height="32" fill="#a67c52"/><path d="M48 362 L60 312 L92 312 L104 362Z" fill="#ffd27a"/>
+  <!-- yatak -->
+  <rect x="130" y="300" width="30" height="185" fill="#5a3c29"/>${studs(130,300,30,'rgba(255,255,255,.15)')}
+  <rect x="145" y="398" width="680" height="62" fill="#e7e3f1"/>${studs(145,398,680,'rgba(0,0,0,.12)')}
+  <rect x="145" y="458" width="680" height="22" fill="#5a3c29"/>
+  <rect x="810" y="352" width="26" height="130" fill="#5a3c29"/>${studs(810,352,26,'rgba(255,255,255,.15)')}
+  <rect x="235" y="360" width="185" height="46" rx="16" fill="#f5f2ff"/>${studs(245,360,160,'rgba(0,0,0,.08)')}
+  <!-- kadın (yatıyor) -->
+  <g id="wBed" transform="translate(565,392) rotate(-90) scale(1.8)">${minifig('woman','w',{arms:false})}</g>
+  <!-- battaniye -->
+  <path d="M372 350 Q400 336 440 346 Q470 332 520 344 Q580 330 640 344 Q700 336 780 346 L800 350 L800 462 L372 462Z" fill="#3f6fb5"/>
+  <path d="M372 350 L800 350 L800 462 L372 462Z" fill="none"/>${studs(374,352,426,'rgba(255,255,255,.22)')}
+  <path d="M390 366 L390 462 M470 366 L470 462 M550 366 L550 462 M630 366 L630 462 M710 366 L710 462" stroke="rgba(255,255,255,.12)" stroke-width="3"/>
+  <!-- ışıma, kol, telefon -->
+  <circle id="phGlow" cx="350" cy="250" r="200" fill="url(#phG)"/>
+  <line id="bArm" x1="420" y1="374" x2="350" y2="290" stroke="#2b2321" stroke-width="17" stroke-linecap="round"/>
+  <g id="phone">
+    <rect x="-24" y="-43" width="48" height="86" rx="8" fill="#15151a"/>
+    <rect x="-20" y="-38" width="40" height="76" rx="5" fill="url(#scr)" id="scr"/>
+    <rect x="-20" y="-38" width="40" height="11" rx="4" fill="#1e3a85"/>
+    <rect x="-16" y="-20" width="26" height="14" rx="5" fill="#4d8af0"/><text x="-3" y="-10.5" text-anchor="middle" font-family="Poppins,sans-serif" font-size="5.5" fill="#fff" font-weight="600">iyi geceler</text>
+    <rect x="-9" y="-1" width="26" height="14" rx="5" fill="#e9eefc"/><text x="4" y="8.5" text-anchor="middle" font-family="Poppins,sans-serif" font-size="5.5" fill="#223" font-weight="600">sana da</text>
+    <use href="#heartP" transform="translate(0,26) scale(.45)" fill="#ff4d7e"/>
+  </g>
+  <circle id="bHand" cx="350" cy="290" r="10" fill="${SK}"/>
+  <g id="zzz"></g>
+  <use id="bigHeart" href="#heartP" fill="#ff4d7e" filter="url(#glow)"/>`;
+  return g;
+}
+
+/* ---------- Sahneleri kur ---------- */
+stage.innerHTML=`<rect width="960" height="540" fill="#000"/><g id="sA">${buildA()}</g><g id="sT">${buildT()}</g><g id="sB">${buildB()}</g>`;
+const $=id=>document.getElementById(id);
+const sA=$('sA'),sT=$('sT'),sB=$('sB');
+
+// arka plan yıldızları
+(function(){let s='';for(let i=0;i<110;i++){s+=`<circle class="bs" data-i="${i}" cx="${(rnd()*960).toFixed(1)}" cy="${(rnd()*340).toFixed(1)}" r="${(.7+rnd()*1.5).toFixed(2)}" fill="#fff"/>`}$('bgStars').innerHTML=s;
+  let ts='';for(let i=0;i<70;i++)ts+=`<circle class="ts" data-i="${i}" cx="${(rnd()*960).toFixed(1)}" cy="${(rnd()*540).toFixed(1)}" r="${(.7+rnd()*1.6).toFixed(2)}" fill="#fff"/>`;$('tstars').innerHTML=ts;
+  let bs='';for(let i=0;i<24;i++)bs+=`<circle class="bw" data-i="${i}" cx="${(10+rnd()*200).toFixed(1)}" cy="${(8+rnd()*110).toFixed(1)}" r="${(.7+rnd()*1.2).toFixed(2)}" fill="#fff"/>`;$('bStars').innerHTML=bs;
+  let w='';for(let i=0;i<9;i++)w+=`<rect class="wv" data-i="${i}" x="${(i*120+rnd()*40-20).toFixed(0)}" y="${(408+(i%4)*11)}" width="${(50+rnd()*50).toFixed(0)}" height="2.5" rx="1" fill="rgba(255,255,255,.1)"/>`;$('waves').innerHTML=w;
+  let h='';for(let i=0;i<7;i++)h+=`<use class="mh" href="#heartP" fill="#ff5c8a" opacity="0"/>`;$('hearts').innerHTML=h;
+  let z='';for(let i=0;i<3;i++)z+=`<text class="zz" font-family="Poppins,sans-serif" font-weight="800" fill="#cfd8ff" opacity="0">Z</text>`;$('zzz').innerHTML=z;
+})();
+const bsEls=[...document.querySelectorAll('.bs')],tsEls=[...document.querySelectorAll('.ts')],bwEls=[...document.querySelectorAll('.bw')];
+const winEls=[...document.querySelectorAll('.win')],wvEls=[...document.querySelectorAll('.wv')];
+const mhEls=[...document.querySelectorAll('.mh')],zzEls=[...document.querySelectorAll('.zz')];
+
+/* ---------- Yıldızlardan kadın yüzü ---------- */
+function ell(cx,cy,rx,ry,a0,a1,n){const a=[];for(let i=0;i<=n;i++){const t=(a0+(a1-a0)*i/n)*Math.PI/180;a.push([cx+rx*Math.cos(t),cy+ry*Math.sin(t)])}return a}
+const FACE=[
+  {n:'hair',  p:ell(0,-.15,.82,.95,180,360,16)},
+  {n:'hairL', p:[[-.82,-.15],[-.82,.1],[-.8,.35],[-.8,.6],[-.78,.85],[-.76,1.1],[-.74,1.3]]},
+  {n:'hairR', p:[[.82,-.15],[.82,.1],[.8,.35],[.8,.6],[.78,.85],[.76,1.1],[.74,1.3]]},
+  {n:'bangs', p:ell(0,-.3,.5,.46,180,360,9)},
+  {n:'jawL',  p:[[-.5,-.3],[-.5,-.05],[-.49,.1]]},
+  {n:'jawR',  p:[[.5,-.3],[.5,-.05],[.49,.1]]},
+  {n:'jaw',   p:ell(0,.1,.5,.62,0,180,12)},
+  {n:'eyeL',  p:ell(-.22,-.07,.11,.06,180,360,4)},
+  {n:'eyeR',  p:ell(.22,-.07,.11,.06,180,360,4)},
+  {n:'browL', p:[[-.36,-.22],[-.22,-.27],[-.08,-.22]]},
+  {n:'browR', p:[[.08,-.22],[.22,-.27],[.36,-.22]]},
+  {n:'nose',  p:[[-.06,.14],[0,.2],[.06,.14]]},
+  {n:'smile', p:ell(0,.26,.28,.2,15,165,9)},
+  {n:'earL',  p:ell(-.64,.3,.09,.09,0,360,8)},
+  {n:'earR',  p:ell(.64,.3,.09,.09,0,360,8)}
+];
+const FC={x:575,y:150,s:112};
+const stars=[];let nStars=0;
+FACE.forEach((g,gi)=>g.p.forEach((pt,pi)=>{stars.push({g:gi,tx:FC.x+pt[0]*FC.s,ty:FC.y+pt[1]*FC.s,sx:rnd()*960,sy:rnd()*300,d:0,ph:rnd()*6,idx:nStars++,lx:pt[0],ly:pt[1],name:g.n})}));
+stars.forEach(s=>{s.d=(s.idx/nStars)*3.4});
+let conSvg='';
+FACE.forEach((g,gi)=>{conSvg+=`<polyline class="cl" data-g="${gi}" fill="none" stroke="#ffe9a8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>`});
+stars.forEach(s=>{conSvg+=`<circle class="cs" data-i="${s.idx}" r="3" fill="#fff"/>`});
+$('con').innerHTML=conSvg;
+const clEls=[...document.querySelectorAll('.cl')],csEls=[...document.querySelectorAll('.cs')];
+const pos=stars.map(()=>[0,0]);
+
+/* ---------- Altyazılar ---------- */
+const CAPS=[
+ [1,6.5,'İstanbul… gece yarısı 🌙'],
+ [6.8,13.5,'Gözlerini gökyüzüne dikti, onu düşündü…'],
+ [14.2,24,'Yıldızlar yavaş yavaş bir araya geliyor ✨'],
+ [24.6,33.4,'Ve gökyüzünde o gülümseme belirdi 💫'],
+ [33.6,37,'Gece öpücüğü yola çıktı…'],
+ [37.8,40.6,'İstanbul’dan Hatay’a, kalpten kalbe 💌'],
+ [41.2,47,'Hatay’da… telefon elinde 📱'],
+ [47.2,52,'Göz kapakları ağırlaştı…'],
+ [52.2,53.8,'İyi geceler, güzelim 💤']
+];
+
+/* ---------- Ana güncelleme ---------- */
+function update(t){
+  // sahne görünürlükleri
+  const oA=Math.min(seg(t,0,1),1-seg(t,36.2,37.4));
+  const oT=Math.min(seg(t,36.8,37.8),1-seg(t,40.2,41));
+  const oB=Math.min(seg(t,40.6,41.6),1-seg(t,53.2,54));
+  sA.style.display=oA>0?'':'none';sA.setAttribute('opacity',oA);
+  sT.style.display=oT>0?'':'none';sT.setAttribute('opacity',oT);
+  sB.style.display=oB>0?'':'none';sB.setAttribute('opacity',oB);
+  // altyazı
+  let c='';for(const k of CAPS){if(t>=k[0]&&t<k[1]){c=k[2];break}}
+  if(capEl.textContent!==c){capEl.textContent=c}
+  capEl.style.opacity=c?1:0;
+  if(oA>0)updateA(t);
+  if(oT>0)updateT(t);
+  if(oB>0)updateB(t);
+}
+
+function setRot(id,a,cx,cy){$(id).setAttribute('transform',`rotate(${a.toFixed(2)} ${cx} ${cy})`)}
+
+function updateA(t){
+  bsEls.forEach(e=>{const i=+e.dataset.i;e.setAttribute('opacity',(.45+.5*Math.sin(t*(1+(i%3)*.7)+i)).toFixed(2))});
+  winEls.forEach(e=>{const p=+e.dataset.p;e.setAttribute('opacity',(.55+.45*Math.sin(t*.7+p*3)>.62?1:.35).toFixed(2))});
+  wvEls.forEach(e=>{const i=+e.dataset.i;e.setAttribute('transform',`translate(${(Math.sin(t*.6+i)*14).toFixed(1)},0)`)});
+  // feribot
+  const fx=((t*22)%1200)-140;$('ferry').setAttribute('transform',`translate(${fx.toFixed(1)},428)`);
+  // kayan yıldız
+  const sh=seg(t,8.5,9.6);$('shoot').setAttribute('transform',`translate(${(lerp(760,520,sh)).toFixed(1)},${(lerp(40,150,sh)).toFixed(1)})`);
+  $('shoot').setAttribute('opacity',sh>0&&sh<1?Math.sin(sh*Math.PI):0);
+
+  // === adam ===
+  const lookUp=ease(seg(t,0,6));
+  const mouthOpen=Math.min(seg(t,14,16),1)*(1-.45*seg(t,24,25));
+  setRot('mHead',lerp(0,10,lookUp),0,-122);
+  $('mEyes').setAttribute('transform',`translate(0,${(-2.3*lookUp).toFixed(2)})`);
+  const mo=$('mMouth');mo.setAttribute('ry',(1.8+3.4*mouthOpen).toFixed(2));mo.setAttribute('rx',(5+1.2*mouthOpen).toFixed(2));
+  // sağ kol (ekranda sağ): yukarı sağa işaret
+  let aR=-150*ease(seg(t,5,8)),aL=0;
+  if(t>=24.4){aL=lerp(0,160,ease(seg(t,24.4,25.6)));aR=lerp(aR,-160,ease(seg(t,24.4,25.6)))}
+  if(t>=27&&t<33){aR=-160+14*Math.sin(t*9);aL=160-14*Math.sin(t*9+1)}
+  if(t>=33){const k=ease(seg(t,33,34));aL=lerp(160,0,k);const b=seg(t,33.2,34.6);aR=b<.5?lerp(-160,-92,ease(b*2)):lerp(-92,-62,ease((b-.5)*2))}
+  setRot('mArmR',aR,33.5,-112);setRot('mArmL',aL,-33.5,-112);
+  // zıplama
+  let jy=0;
+  if(t>=24.6&&t<26)jy=-Math.sin(seg(t,24.6,26)*Math.PI)*34;
+  else if(t>=27&&t<33)jy=-Math.abs(Math.sin(t*4.5))*9;
+  $('manG').setAttribute('transform',`translate(190,${(512+jy).toFixed(1)}) scale(1.5)`);
+  // hafif sallanma
+  $('manWrap').setAttribute('transform',`rotate(${(Math.sin(t*1.3)*.5).toFixed(2)} 190 512)`);
+
+  // === yıldız yüzü ===
+  const pulse=1+.012*Math.sin(t*2.2)*seg(t,26,28);
+  const blink=(t>29.3&&t<29.75)?Math.sin(seg(t,29.3,29.75)*Math.PI):0;
+  stars.forEach((s,i)=>{
+    const p=ease(seg(t,14+s.d,21+s.d));
+    let tx=FC.x+s.lx*FC.s*pulse,ty=FC.y+s.ly*FC.s*pulse;
+    if(s.name==='eyeR'){ty=(FC.y-.07*FC.s)+(ty-(FC.y-.07*FC.s))*(1-.92*blink)}
+    const sw=(1-p)*34;
+    const x=lerp(s.sx,tx,p)+Math.sin(t*1.7+s.ph)*sw,y=lerp(s.sy,ty,p)+Math.cos(t*1.3+s.ph)*sw;
+    pos[i][0]=x;pos[i][1]=y;
+    const e=csEls[i];e.setAttribute('cx',x.toFixed(1));e.setAttribute('cy',y.toFixed(1));
+    const tw=.75+.25*Math.sin(t*3+s.ph*5);
+    e.setAttribute('r',(p<.02?0:(2.2+1.6*tw*(.4+.6*p))).toFixed(2));
+    e.setAttribute('opacity',p<.02?0:Math.min(1,.4+p));
+  });
+  const lineA=seg(t,22,25);
+  clEls.forEach(l=>{
+    const gi=+l.dataset.g;let pts='';
+    stars.forEach((s,i)=>{if(s.g===gi)pts+=pos[i][0].toFixed(1)+','+pos[i][1].toFixed(1)+' '});
+    l.setAttribute('points',pts);l.setAttribute('opacity',(lineA*(.75+.25*Math.sin(t*2+gi))).toFixed(2));
+  });
+
+  // === kalpler (adamdan yükselir) ===
+  mhEls.forEach((e,i)=>{
+    const st=26.4+i*1.05,life=3.2,k=(t-st)/life;
+    if(k<0||k>1||t>36){e.setAttribute('opacity',0);return}
+    const x=200+Math.sin(k*5+i*1.7)*40+(i-3)*9,y=262-k*170,sc=(.5+.5*Math.min(1,k*5))*(1-.3*k);
+    e.setAttribute('transform',`translate(${x.toFixed(1)},${y.toFixed(1)}) scale(${sc.toFixed(2)})`);
+    e.setAttribute('opacity',(1-seg(k,.7,1)).toFixed(2));
+  });
+  // === öpücük kalbi ===
+  const kk=seg(t,34.2,37.2),K=$('kiss');
+  if(kk<=0||kk>=1){K.setAttribute('opacity',0)}else{
+    const e=ease(kk);const x=lerp(270,1010,e),y=lerp(330,60,e)-Math.sin(e*Math.PI)*110;
+    K.setAttribute('transform',`translate(${x.toFixed(1)},${y.toFixed(1)}) scale(${(1.1+.4*Math.sin(t*10)).toFixed(2)})`);K.setAttribute('opacity',1);
+  }
+}
+
+function updateT(t){
+  tsEls.forEach(e=>{const i=+e.dataset.i;e.setAttribute('opacity',(.4+.5*Math.sin(t*1.5+i)).toFixed(2))});
+  const R=$('route'),L=R.getTotalLength();
+  const p=ease(seg(t,37.4,40.4));
+  $('routeP').setAttribute('stroke-dasharray',`${(L*p).toFixed(1)} ${L.toFixed(1)}`);
+  const pt=R.getPointAtLength(L*p);
+  $('tHeart').setAttribute('transform',`translate(${pt.x.toFixed(1)},${pt.y.toFixed(1)}) scale(${(1.6+.3*Math.sin(t*12)).toFixed(2)})`);
+}
+
+function updateB(t){
+  bwEls.forEach(e=>{const i=+e.dataset.i;e.setAttribute('opacity',(.4+.55*Math.sin(t*1.4+i*2)).toFixed(2))});
+  $('lampGlow').setAttribute('opacity',(.9+.1*Math.sin(t*2.1)).toFixed(2));
+
+  // göz kapakları (0=açık, 9=kapalı)
+  let lid=0;
+  if(t<43.2)lid=0;
+  else if(t<43.45)lid=9*Math.sin(seg(t,43.2,43.45)*Math.PI);           // göz kırpma
+  else if(t<46.2)lid=0;
+  else if(t<48.8)lid=lerp(0,6,ease(seg(t,46.2,48.8)))+Math.max(0,Math.sin(t*5))*1.2;
+  else if(t<49.6)lid=lerp(6,9,ease(seg(t,48.8,49.6)));
+  else if(t<50.3)lid=lerp(9,1.5,ease(seg(t,49.6,50.0)));                // irkilme
+  else if(t<51.4)lid=lerp(1.5,9,ease(seg(t,50.5,51.4)));
+  else lid=9;
+  const lidEl=$('wLid');lidEl.setAttribute('height',Math.min(9,lid).toFixed(2));
+  $('wClosed').setAttribute('opacity',lid>8.2?1:0);
+  $('wEyes').setAttribute('opacity',lid>8.2?0:1);
+  let hr=90;
+  if(t>=49.6&&t<50.6)hr=90-8*Math.sin(seg(t,49.6,50.6)*Math.PI);
+  else hr=90+Math.sin(t*.9)*1.2;
+  setRot('wHead',hr,0,-122);
+
+  // telefon
+  let px=352,py=222,pr=-6+Math.sin(t*.8)*2,glow=1;
+  if(t>=46.5&&t<49.6){const k=ease(seg(t,46.5,49.6));py=lerp(222,250,k);px=lerp(352,356,k)}
+  else if(t>=49.6&&t<50.3){const k=ease(seg(t,49.6,50.0));py=lerp(250,272,k);pr=lerp(-6,14,k);px=356}
+  else if(t>=50.3&&t<51.2){const k=ease(seg(t,50.3,50.8));py=lerp(272,236,k);pr=lerp(14,-4,k);px=356;if(t>=50.8){py=lerp(236,248,seg(t,50.8,51.2))}}
+  else if(t>=51.2){const k=ease(seg(t,51.2,53));py=lerp(248,282,k);pr=lerp(-4,18,k);px=lerp(356,366,k);glow=1-.7*seg(t,51.2,54)}
+  if(t<46.5){py=222+Math.sin(t*1.1)*3}
+  $('phone').setAttribute('transform',`translate(${px.toFixed(1)},${py.toFixed(1)}) rotate(${pr.toFixed(1)}) scale(1.2)`);
+  $('phGlow').setAttribute('cx',px);$('phGlow').setAttribute('cy',py);$('phGlow').setAttribute('opacity',(glow*(.85+.15*Math.sin(t*3))).toFixed(2));
+  $('scr').setAttribute('opacity',glow.toFixed(2));
+  // kol + el
+  const hx=px+8*Math.sin(pr*Math.PI/180)*-1,hy=py+54;
+  $('bHand').setAttribute('cx',(hx).toFixed(1));$('bHand').setAttribute('cy',hy.toFixed(1));
+  const A=$('bArm');A.setAttribute('x2',hx.toFixed(1));A.setAttribute('y2',(hy+2).toFixed(1));
+
+  // Zzz
+  zzEls.forEach((e,i)=>{
+    const st=49.2+i*.9,k=((t-st)%2.8)/2.8;
+    if(t<st){e.setAttribute('opacity',0);return}
+    const kk=((t-st)/2.8)%1;
+    e.setAttribute('x',(420+kk*38+i*10).toFixed(1));e.setAttribute('y',(300-kk*110).toFixed(1));
+    e.setAttribute('font-size',(20+i*7+kk*10).toFixed(1));e.setAttribute('opacity',(Math.sin(kk*Math.PI)*.95).toFixed(2));
+  });
+  // büyük kalp
+  const hk=seg(t,51.6,54),H=$('bigHeart');
+  if(hk<=0){H.setAttribute('opacity',0)}else{
+    H.setAttribute('transform',`translate(${(px+36).toFixed(1)},${(py-62-hk*110).toFixed(1)}) scale(${(1.2+hk*3.2).toFixed(2)})`);
+    H.setAttribute('opacity',(1-seg(hk,.75,1)).toFixed(2));
+  }
+}
+
+/* ---------- Zaman akışı: şarkıya bağlı ---------- */
+const qs=new URLSearchParams(location.search);
+const frozen=qs.has('t')?parseFloat(qs.get('t')):null;
+if(frozen!==null)document.getElementById('intro').classList.add('hide');
+let fallbackT0=null,lastT=0;
+function currentT(){
+  if(frozen!==null)return frozen;
+  if(!audio.paused&&!audio.error&&audio.readyState>=2){lastT=audio.currentTime%D;fallbackT0=null;return lastT}
+  if(audio.error||(!audio.paused&&audio.readyState<2)){ // şarkı yoksa kendi saatiyle oynat
+    if(fallbackT0===null)fallbackT0=performance.now()-lastT*1000;
+    lastT=((performance.now()-fallbackT0)/1000)%D;return lastT;
+  }
+  return lastT;
+}
+function frame(){update(currentT());requestAnimationFrame(frame)}
+update(0);requestAnimationFrame(frame);
+window.__update=update;
+</script>
+</body>
+</html>
